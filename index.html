@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Local Menu - Coffee & Cafe</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <script type="module" src="/src/main.ts" defer></script>
+        <style>
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: #f3f2e9;
+                color: #4a5d4e;
+            }
+            .font-script {
+                font-family: "Playfair Display", serif;
+            }
+            .dotted-leader {
+                flex-grow: 1;
+                border-bottom: 2px dotted #cbd5e1;
+                margin: 0 8px 5px 8px;
+            }
+            /* Custom clamp for smooth font scaling */
+            .text-responsive-header {
+                font-size: clamp(4rem, 15vw, 8rem);
+            }
+        </style>
+    </head>
+    <body class="p-2 sm:p-4 md:p-12">
+        <!-- Isola Menu -->
+        <div
+            class="max-w-4xl mx-auto bg-[#fdfdfb] p-6 sm:p-8 md:p-12 shadow-sm border border-stone-200 relative"
+        >
+            <header
+                class="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 gap-6"
+            >
+                <div class="relative">
+                    <div class="mt-2">
+                        <h1
+                            class="text-responsive-header font-script italic text-[#6b8c70] leading-none"
+                        >
+                            Menu
+                        </h1>
+                    </div>
+                </div>
+                <div
+                    class="bg-[#6b8c70] text-white p-4 text-left md:text-right w-full md:w-auto"
+                >
+                    <p
+                        class="font-bold tracking-tighter text-base sm:text-lg uppercase导致-none"
+                    >
+                        ISOLA
+                    </p>
+                    <p
+                        class="font-bold tracking-tighter text-base sm:text-lg leading-none"
+                    >
+                        coffee & experiences
+                    </p>
+                </div>
+            </header>
+
+            <section class="mb-12">
+                <h3
+                    class="text-xl sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#6b8c70] pl-4 uppercase"
+                >
+                    Postres
+                </h3>
+                <div id="postres-list" class="space-y-4"></div>
+            </section>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-12"
+            >
+                <section>
+                    <h3
+                        class="text-xl sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#6b8c70] pl-4 uppercase"
+                    >
+                        Café
+                    </h3>
+                    <div id="coffee-list" class="space-y-4 text-sm"></div>
+                </section>
+            </div>
+
+            <footer
+                class="flex flex-wrap justify-between gap-2 text-[9px] uppercase tracking-widest text-stone-400 font-bold border-t border-stone-100 pt-4"
+            >
+                <p>* Precios no incluyen ITBIS</p>
+            </footer>
+        </div>
+
+        <!-- Ansuz Menu -->
+
+        <div
+            class="bg-center bg-no-repeat max-w-4xl mx-auto p-6 sm:p-8 md:p-12 shadow-sm border border-stone-200 relative"
+            style="
+                background-image: url('src/assets/ansuz_background.png');
+            "
+        >
+            <header
+                class="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 gap-6"
+            >
+                <div class="relative">
+                    <div class="mt-2">
+                        <h1
+                            class="text-responsive-header font-script italic text-white leading-none"
+                        >
+                            Menu
+                        </h1>
+                    </div>
+                </div>
+                <div
+                    class="bg-white text-white p-4 text-left md:text-right w-full md:w-auto"
+                >
+                    <p
+                        class="font-bold text-black tracking-tighter text-base sm:text-lg uppercase导致-none"
+                    >
+                        Ansuz Burger
+                    </p>
+                </div>
+            </header>
+
+            <section class="mb-12">
+                <h3
+                    class="text-xl text-white sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#c5c6c7] pl-4 uppercase"
+                >
+                    Hamburguesas
+                </h3>
+                <div id="hamburger-list" class="space-y-4"></div>
+            </section>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-12"
+            >
+                <section>
+                    <h3
+                        class="text-xl text-white sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#c5c6c7] pl-4 uppercase"
+                    >
+                        Alitas
+                    </h3>
+                    <div id="alitas-list" class="space-y-4 text-sm"></div>
+                </section>
+            </div>
+
+            <footer
+                class="flex flex-wrap justify-between gap-2 text-[9px] uppercase tracking-widest text-stone-400 font-bold border-t border-stone-100 pt-4"
+            >
+                <p>* Precios no incluyen ITBIS</p>
+            </footer>
+        </div>
+
+        <!-- Bebidas Menu -->
+
+        <div
+            class="bg-black max-w-4xl mx-auto p-6 sm:p-8 md:p-12 shadow-sm border border-stone-200 relative"
+
+        >
+            <header
+                class="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16 gap-6"
+            >
+                <div class="relative">
+                    <div class="mt-2">
+                        <h1
+                            class="text-responsive-header font-script italic text-white leading-none"
+                        >
+                            Menu
+                        </h1>
+                    </div>
+                </div>
+                <div
+                    class="bg-[#E1E1E1] text-white p-4 text-left md:text-right w-full md:w-auto"
+                >
+                    <p
+                        class="font-bold text-black tracking-tighter text-base sm:text-lg uppercase导致-none"
+                    >
+                        ISOLA
+                    </p>
+                    <p
+                        class="font-bold text-black tracking-tighter text-base sm:text-lg uppercase导致-none"
+                    >
+                        &
+                    </p>
+                    <p
+                        class="font-bold text-black tracking-tighter text-base sm:text-lg uppercase导致-none"
+                    >
+                        Ansuz Burger
+                    </p>
+                </div>
+            </header>
+
+            <section class="mb-12">
+                <h3
+                    class="text-xl text-[#E1E1E1] sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#c5c6c7] pl-4 uppercase"
+                >
+                    Cocteles
+                </h3>
+                <div id="tragos-list" class="space-y-4"></div>
+            </section>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-12"
+            >
+                <section>
+                    <h3
+                        class="text-xl text-[#E1E1E1] sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#c5c6c7] pl-4 uppercase"
+                    >
+                        Cervezas
+                    </h3>
+                    <div id="cervezas-list" class="space-y-4 text-sm"></div>
+                </section>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-12"
+            >
+                <section>
+                    <h3
+                        class="text-xl text-[#E1E1E1] sm:text-2xl font-bold tracking-[0.2em] mb-6 border-l-[10px] border-[#c5c6c7] pl-4 uppercase"
+                    >
+                        Jugos
+                    </h3>
+                    <div id="jugos-list" class="space-y-4 text-sm"></div>
+                </section>
+            </div>
+
+            <footer
+                class="flex flex-wrap justify-between gap-2 text-[9px] uppercase tracking-widest text-stone-400 font-bold border-t border-stone-100 pt-4"
+            >
+                <p>* Precios no incluyen ITBIS</p>
+            </footer>
+        </div>
+    </body>
+</html>
