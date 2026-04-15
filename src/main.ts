@@ -42,7 +42,7 @@ export async function listPublicFiles(): Promise<MenuData> {
   }
 
   const data: DriveResponse = await res.json();
-  const file = data.files.find((x) => x.name === 'Menu.json')
+  const file = data.files.find((x) => x.name === 'Menu.json') as DriveFile;
 
   const fileUrl = `https://www.googleapis.com/drive/v3/files/${file.id}?alt=media&key=${API_KEY}`;
 
