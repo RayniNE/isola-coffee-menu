@@ -1,15 +1,5 @@
 import "./style.css";
-const API_KEY = import.meta.env.VITE_GDRIVE_API_KEY as string;
-const FOLDER_ID = import.meta.env.VITE_GDRIVE_FOLDER_ID as string;
-
-interface DriveFile {
-  id: string;
-  name: string;
-}
-
-interface DriveResponse {
-  files: DriveFile[];
-}
+const FOLDER_ID = import.meta.env.VITE_MENU_URL as string;
 
 interface MenuItem {
   name: string;
@@ -27,23 +17,8 @@ interface MenuData {
 }
 
 export async function listPublicFiles(): Promise<MenuData> {
-  const url =
-    `https://www.googleapis.com/drive/v3/files` +
-    `?key=${API_KEY}` +
-    `&q='${FOLDER_ID}'+in+parents` +
-    `&fields=files(id,name,mimeType)`;
 
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error(`Error: ${res.status}`);
-  }
-
-  const data: DriveResponse = await res.json();
-  const file = data.files.find((x) => x.name === 'Menu.json') as DriveFile;
-
-  const fileUrl = `https://www.googleapis.com/drive/v3/files/${file.id}?alt=media&key=${API_KEY}`;
-
+  const fileUrl = FOLDER_ID
   const response = await fetch(fileUrl);
 
   if (!response.ok) {
