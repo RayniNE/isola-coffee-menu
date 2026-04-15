@@ -27,7 +27,7 @@ jobs:
       - name: Build project
         run: bun run build
         env:
-          VITE_GOOGLE_API_KEY: ${{ secrets.VITE_GOOGLE_API_KEY }}
+          VITE_GDRIVE_API_KEY: ${{ secrets.VITE_GDRIVE_API_KEY }}
           VITE_GDRIVE_FOLDER_ID: ${{ secrets.VITE_GDRIVE_FOLDER_ID }}
 
       - name: Setup Pages
