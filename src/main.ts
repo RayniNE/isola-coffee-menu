@@ -1,6 +1,4 @@
-// import { authenticate } from '@google-cloud/local-auth';
-// import { google } from 'googleapis';
-
+import "./style.css";
 const API_KEY = import.meta.env.VITE_GDRIVE_API_KEY as string;
 const FOLDER_ID = import.meta.env.VITE_GDRIVE_FOLDER_ID as string;
 
@@ -59,8 +57,6 @@ export async function listPublicFiles(): Promise<MenuData> {
 
 const jsonContent = await listPublicFiles()
 
-console.log('jsonContent', jsonContent)
-
 // Data Filtering
 const postres = jsonContent.items.filter((x) => x.section === "Postres" && x.display);
 const coffee = jsonContent.items.filter((x) => x.section === "Café" && x.display);
@@ -69,8 +65,6 @@ const tragos = jsonContent.items.filter((x) => x.section === "Cocteles" && x.dis
 const cervezas = jsonContent.items.filter((x) => x.section === "Alcohol" && x.display);
 const burger = jsonContent.items.filter((x) => x.section === "Burger" && x.display);
 const alitas = jsonContent.items.filter((x) => x.section === "Alitas" && x.display);
-
-console.log('postres', postres)
 
 function renderItems() {
   const postresSection = document.getElementById("postres-list");
@@ -83,8 +77,6 @@ function renderItems() {
 
   // Helper to handle wrapping + dotted leader
   const rowTemplate = (item: MenuItem, isAnsuz: boolean = false, isBebida = false) => {
-    console.log('isAnsuz', isAnsuz ? "text-white" : isBebida ? "#99999" : "")
-    // console.log('isBebida', isBebida)
     return `
     <div class="flex items-end gap-2 w-full">
         <div class="flex flex-col min-w-0">
