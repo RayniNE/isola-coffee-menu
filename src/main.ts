@@ -1,7 +1,7 @@
 // import { authenticate } from '@google-cloud/local-auth';
 // import { google } from 'googleapis';
 
-const API_KEY = import.meta.env.VITE_GDRIVE_API_KEY_TWO as string;
+const API_KEY = import.meta.env.VITE_GDRIVE_API_KEY as string;
 const FOLDER_ID = import.meta.env.VITE_GDRIVE_FOLDER_ID as string;
 
 interface DriveFile {
