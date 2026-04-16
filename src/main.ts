@@ -32,23 +32,27 @@ export async function listPublicFiles(): Promise<MenuData> {
 
 const jsonContent = await listPublicFiles()
 
+const SIN_ALCOHOL_SECTION = ["Otras bebidas", "Jugos"]
+
 // Data Filtering
 const postres = jsonContent.items.filter((x) => x.section === "Postres" && x.display);
 const coffee = jsonContent.items.filter((x) => x.section === "Café" && x.display);
-const jugos = jsonContent.items.filter((x) => x.section === "Jugos" && x.display);
 const tragos = jsonContent.items.filter((x) => x.section === "Cocteles" && x.display);
 const cervezas = jsonContent.items.filter((x) => x.section === "Alcohol" && x.display);
 const burger = jsonContent.items.filter((x) => x.section === "Burger" && x.display);
 const alitas = jsonContent.items.filter((x) => x.section === "Alitas" && x.display);
+const sinAlcohol = jsonContent.items.filter((x) => SIN_ALCOHOL_SECTION.includes(x.section) && x.display);
+const ansuzOtros = jsonContent.items.filter((x) => x.section === 'Ansuz-Otros' && x.display);
 
 function renderItems() {
   const postresSection = document.getElementById("postres-list");
   const coffeeSection = document.getElementById("coffee-list");
-  const jugosSection = document.getElementById("jugos-list");
+  const sinAlcoholSection = document.getElementById("sin-alcohol-list");
   const tragosSection = document.getElementById("tragos-list");
   const cervezasSection = document.getElementById("cervezas-list");
   const burgerSection = document.getElementById("hamburger-list");
   const alitasSection = document.getElementById("alitas-list");
+  const ansuzOtrosSection = document.getElementById("ansuz-otros-list");
 
   // Helper to handle wrapping + dotted leader
   const rowTemplate = (item: MenuItem, isAnsuz: boolean = false, isBebida = false) => {
@@ -86,12 +90,16 @@ function renderItems() {
     cervezasSection.innerHTML = cervezas.map((x) => rowTemplate(x, false, true)).join("");
   }
 
-  if (jugosSection) {
-    jugosSection.innerHTML = jugos.map((x) => rowTemplate(x, false, true)).join("");
+  if (sinAlcoholSection) {
+    sinAlcoholSection.innerHTML = sinAlcohol.map((x) => rowTemplate(x, false, true)).join("");
   }
 
   if (tragosSection) {
     tragosSection.innerHTML = tragos.map((x) => rowTemplate(x, false, true)).join("");
+  }
+
+  if (ansuzOtrosSection) {
+    ansuzOtrosSection.innerHTML = ansuzOtros.map((x) => rowTemplate(x, true, true)).join("");
   }
 
 }
